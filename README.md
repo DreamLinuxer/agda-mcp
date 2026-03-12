@@ -14,7 +14,7 @@ Talks to `agda --interaction-json` (the same interface powering agda-mode in Ema
 ### 1. Clone and build
 
 ```bash
-git clone https://github.com/chaohong/agda-mcp.git
+git clone https://github.com/DreamLinuxer/agda-mcp.git
 cd agda-mcp
 uv sync
 ```
