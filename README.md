@@ -24,7 +24,7 @@ uv sync
 **Claude Code** (globally, for all projects):
 
 ```bash
-claude mcp add --scope user agda-lsp -- /path/to/agda-mcp/.venv/bin/agda-mcp
+claude mcp add --scope user agda-lsp -- uv run --directory /path/to/agda-mcp agda-mcp
 ```
 
 **Other MCP clients** — add to your client's MCP config:
@@ -33,14 +33,15 @@ claude mcp add --scope user agda-lsp -- /path/to/agda-mcp/.venv/bin/agda-mcp
 {
   "mcpServers": {
     "agda-lsp": {
-      "command": "/absolute/path/to/agda-mcp/.venv/bin/agda-mcp",
+      "command": "uv",
+      "args": ["run", "--directory", "/path/to/agda-mcp", "agda-mcp"],
       "type": "stdio"
     }
   }
 }
 ```
 
-Replace `/absolute/path/to/agda-mcp` with the actual path where you cloned the repo.
+Replace `/path/to/agda-mcp` with the absolute path where you cloned the repo.
 
 ## Tools
 
