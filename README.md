@@ -4,10 +4,49 @@ MCP server for [Agda](https://agda.readthedocs.io/), providing type checking, go
 
 Talks to `agda --interaction-json` (the same interface powering agda-mode in Emacs/VS Code), so it has access to all of Agda's interactive features without needing `agda-language-server`.
 
-## Prerequisites
+## Installation
 
-- [Agda](https://agda.readthedocs.io/en/latest/getting-started/installation.html) (tested with 2.8.0)
-- Python 3.10+
+### Prerequisites
+
+Make sure you have these installed:
+
+- [Agda](https://agda.readthedocs.io/en/latest/getting-started/installation.html) (tested with 2.8.0) — `agda` must be on your `PATH`
+- [uv](https://docs.astral.sh/uv/getting-started/installation/) (for running the MCP server)
+
+### Claude Code (quickstart)
+
+```bash
+claude mcp add agda-lsp -- uvx agda-mcp
+```
+
+That's it. Restart Claude Code and the tools are available.
+
+### Other MCP clients
+
+Add to your client's MCP config:
+
+```json
+{
+  "mcpServers": {
+    "agda-lsp": {
+      "command": "uvx",
+      "args": ["agda-mcp"],
+      "type": "stdio"
+    }
+  }
+}
+```
+
+For Claude Code, this goes in `~/.claude.json` under `mcpServers`. For other clients, see your client's documentation for where to add MCP server configs.
+
+### From source
+
+```bash
+git clone https://github.com/chaohong/agda-mcp.git
+cd agda-mcp
+uv sync
+uv run agda-mcp
+```
 
 ## Tools
 
@@ -22,39 +61,6 @@ Talks to `agda --interaction-json` (the same interface powering agda-mode in Ema
 | `agda_auto` | Try to automatically solve a goal |
 | `agda_goal_info` | Get the type and context of a goal |
 | `agda_why_in_scope` | Explain where a name comes from |
-
-## Installation
-
-### Claude Code
-
-```bash
-claude mcp add agda-lsp -- uvx agda-mcp
-```
-
-### Manual (any MCP client)
-
-Add to your MCP config (e.g. `~/.claude.json`):
-
-```json
-{
-  "mcpServers": {
-    "agda-lsp": {
-      "command": "uvx",
-      "args": ["agda-mcp"],
-      "type": "stdio"
-    }
-  }
-}
-```
-
-### From source
-
-```bash
-git clone https://github.com/chaohong/agda-mcp.git
-cd agda-mcp
-uv sync
-uv run agda-mcp
-```
 
 ## Usage examples
 
