@@ -3,7 +3,6 @@ name = "agda-mcp"
 version = "0.1.0"
 description = "MCP server for Agda — type checking, go-to-definition, case split, auto, and more"
 readme = "README.md"
-license = "MIT"
 requires-python = ">=3.10"
 dependencies = ["mcp>=1.0.0"]
 

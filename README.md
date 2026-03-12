@@ -98,7 +98,3 @@ agda_auto("/path/to/file.agda", 0)
 ## How it works
 
 The server spawns a single persistent `agda --interaction-json` process and communicates via the IOTCM protocol over stdio. File state (highlighting data for go-to-definition, goal types, diagnostics) is cached per file and refreshed on each `agda_load` call.
-
-## License
-
-MIT
