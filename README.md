@@ -52,8 +52,8 @@ Add to your MCP config (e.g. `~/.claude.json`):
 ```bash
 git clone https://github.com/chaohong/agda-mcp.git
 cd agda-mcp
-pip install -e .
-agda-mcp  # runs the server
+uv sync
+uv run agda-mcp
 ```
 
 ## Usage examples
