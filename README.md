@@ -8,45 +8,39 @@ Talks to `agda --interaction-json` (the same interface powering agda-mode in Ema
 
 ### Prerequisites
 
-Make sure you have these installed:
-
 - [Agda](https://agda.readthedocs.io/en/latest/getting-started/installation.html) (tested with 2.8.0) — `agda` must be on your `PATH`
-- [uv](https://docs.astral.sh/uv/getting-started/installation/) (for running the MCP server)
+- [uv](https://docs.astral.sh/uv/getting-started/installation/)
 
-### Claude Code (quickstart)
+### 1. Clone and build
 
 ```bash
-claude mcp add agda-lsp -- uvx agda-mcp
+git clone https://github.com/chaohong/agda-mcp.git
+cd agda-mcp
+uv sync
 ```
 
-That's it. Restart Claude Code and the tools are available.
+### 2. Add to your MCP client
 
-### Other MCP clients
+**Claude Code:**
 
-Add to your client's MCP config:
+```bash
+claude mcp add agda-lsp -- /path/to/agda-mcp/.venv/bin/agda-mcp
+```
+
+**Other MCP clients** — add to your client's MCP config:
 
 ```json
 {
   "mcpServers": {
     "agda-lsp": {
-      "command": "uvx",
-      "args": ["agda-mcp"],
+      "command": "/path/to/agda-mcp/.venv/bin/agda-mcp",
       "type": "stdio"
     }
   }
 }
 ```
 
-For Claude Code, this goes in `~/.claude.json` under `mcpServers`. For other clients, see your client's documentation for where to add MCP server configs.
-
-### From source
-
-```bash
-git clone https://github.com/chaohong/agda-mcp.git
-cd agda-mcp
-uv sync
-uv run agda-mcp
-```
+Replace `/path/to/agda-mcp` with the actual path where you cloned the repo.
 
 ## Tools
 
