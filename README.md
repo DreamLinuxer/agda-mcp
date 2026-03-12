@@ -24,10 +24,8 @@ uv sync
 **Claude Code** (globally, for all projects):
 
 ```bash
-claude mcp add --scope user agda-lsp -- "$(pwd)/.venv/bin/agda-mcp"
+claude mcp add --scope user agda-lsp -- /path/to/agda-mcp/.venv/bin/agda-mcp
 ```
-
-Run this from inside the cloned `agda-mcp` directory.
 
 **Other MCP clients** — add to your client's MCP config:
 
